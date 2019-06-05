@@ -1,2 +1,7 @@
-<h1>About</h1>
-<p>This is the about page</p>
+<div class="breakout">
+    <%= image_tag(About.first.img_url) %>
+</div>
+<h2><%= About.first.title %></h2>
+<p>
+    <%= About.first.body %>
+</p>
