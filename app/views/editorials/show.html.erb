@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @editorial.artist_id %>
+</p>
+
+<p>
+  <strong>Link url:</strong>
+  <%= @editorial.link_url %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @editorial.img_url %>
+</p>
+
+<%= link_to 'Edit', edit_editorial_path(@editorial) %> |
+<%= link_to 'Back', editorials_path %>

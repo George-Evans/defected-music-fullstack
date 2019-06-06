@@ -1,0 +1,32 @@
+<%= form_with(model: editorial, local: true) do |form| %>
+  <% if editorial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(editorial.errors.count, "error") %> prohibited this editorial from being saved:</h2>
+
+      <ul>
+      <% editorial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :artist_id %>
+    <%= form.number_field :artist_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_url %>
+    <%= form.text_field :link_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :img_url %>
+    <%= form.text_field :img_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

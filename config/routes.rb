@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :editorials
+  resources :artists
   resources :homes
   resources :abouts
   get '/about', to: 'simple_pages#about'
