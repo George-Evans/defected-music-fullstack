@@ -1,7 +1,8 @@
-<div class="breakout">
+<div class="breakout about">
     <%= image_tag(About.first.img_url) %>
 </div>
 <h2><%= About.first.title %></h2>
 <p>
     <%= About.first.body %>
 </p>
+<%= link_to 'Edit', edit_about_path(About.first) %>

@@ -1,6 +1,13 @@
-<h1>Editing Artist</h1>
+<div class="container edit-form">
+    <h2>Editing <%= @artist.name %></h2>
+    <%= render 'form', artist: @artist %>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <%= link_to 'View', @artist %> |
+            <%= link_to 'Delete', @artist, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <%= link_to 'Back to List', artists_path %>
+        </div>
+    </div>
+</div>
 
-<%= render 'form', artist: @artist %>
-
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>

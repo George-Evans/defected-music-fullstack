@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :intro %>
-    <%= form.text_area :intro %>
+  <div class="field row">
+    <div class="col-3"><%= form.label :intro %>*</div>
+    <div class="col-9"><%= form.text_area :intro %></div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions row">
+    <div class="col-3"></div>
+    <div class="col-9"><%= form.submit %></div>
   </div>
 <% end %>

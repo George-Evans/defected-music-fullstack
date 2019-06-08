@@ -42,7 +42,7 @@ class HomesController < ApplicationController
   def update
     respond_to do |format|
       if @home.update(home_params)
-        format.html { redirect_to @home, notice: 'Home was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Home was successfully updated.' }
         format.json { render :show, status: :ok, location: @home }
       else
         format.html { render :edit }

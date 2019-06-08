@@ -4,16 +4,9 @@
 <div class="row artists">
     <div class="col-6 col-lg-4">
         <div class="blurb">
-            <%= Home.first.intro %>
+            <%= simple_format(Home.first.intro) %>
+            <%= link_to "Edit", edit_home_path(Home.first)%>
         </div>
-    </div>
-
-    <div class="col-6 col-lg-4">
-    <%= link_to new_artist_path do %>
-      <div class="blurb new">
-        Add New Artist
-      </div>
-    <% end %>
     </div>
 
     <% @artists.each do |artist| %>
@@ -24,4 +17,12 @@
         </div>
       </div>
     <% end %>
+
+    <div class="col-6 col-lg-4">
+      <%= link_to new_artist_path do %>
+        <div class="blurb new">
+          Add New Artist
+        </div>
+      <% end %>
+    </div>
 </div>
