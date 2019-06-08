@@ -146,7 +146,7 @@ nav {
     margin-bottom: 20px;
 }
 
-#blurb {
+.blurb {
     @extend %defected-font-regular;
     font-size: $body;
     line-height: $body;
@@ -154,6 +154,10 @@ nav {
     background-color: $black;
     height: 100%;
     padding: 16px 28px 36px 16px;
+
+    &.new:hover {
+        color: $mid;
+    }
 }
 
 
@@ -277,6 +281,7 @@ iframe {
     color: white;
     text-align: center;
     opacity: 0;
+    pointer-events: none;
 
     &.visible {
         opacity: 1;
@@ -285,7 +290,7 @@ iframe {
 
 // Extra Small Phones
 @media (max-width: 420px) {
-    #blurb {
+    .blurb {
         font-size: $small;
         line-height: $small;
         padding: 10px 15px 10px 10px;
@@ -347,7 +352,7 @@ iframe {
         margin-top: 2px;
     }
 
-    #blurb {
+    .blurb {
         font-size: $sub-heading;
         line-height: $sub-heading;
         padding: 24px 28px 44px 24px;

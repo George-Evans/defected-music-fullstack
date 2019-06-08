@@ -1,43 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Artists</h1>
+<!-- Artists -->
+<div class="row artists">
+    <div class="col-6 col-lg-4">
+        <div class="blurb">
+            <%= Home.first.intro %>
+        </div>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Order</th>
-      <th>Name</th>
-      <th>Bio</th>
-      <th>Img url</th>
-      <th>Spotify playlist</th>
-      <th>Fb</th>
-      <th>Insta</th>
-      <th>Twitter</th>
-      <th>Spotify</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @artists.each do |artist| %>
-      <tr>
-        <td><%= artist.order %></td>
-        <td><%= artist.name %></td>
-        <td><%= artist.bio %></td>
-        <td><%= artist.img_url %></td>
-        <td><%= artist.spotify_playlist %></td>
-        <td><%= artist.fb %></td>
-        <td><%= artist.insta %></td>
-        <td><%= artist.twitter %></td>
-        <td><%= artist.spotify %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-6 col-lg-4">
+    <%= link_to new_artist_path do %>
+      <div class="blurb new">
+        Add New Artist
+      </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
 
-<br>
-
-<%= link_to 'New Artist', new_artist_path %>
+    <% @artists.each do |artist| %>
+      <div class="col-6 col-lg-4">
+        <div class="shim">
+           <%= link_to image_tag(artist.img_url, class: "img-fluid"), artist %>
+           <p class="artist-name"><%= artist.name %></p>
+        </div>
+      </div>
+    <% end %>
+</div>
