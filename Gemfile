@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use jQuery
 gem 'jquery-rails'
+# Use jQuery-UI
+gem 'jquery-ui-rails'
 # Use Bootstrap
 gem 'bootstrap', '~> 4.3.1'
 # Use CoffeeScript for .coffee assets and views
@@ -32,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use act_as_list for reordering
 gem 'acts_as_list'
+
+# Use rails_sortable for drag and drop sorting
+gem 'rails_sortable'
 
 # Use carrierwave image uploader
 gem 'carrierwave', '~> 1.0'

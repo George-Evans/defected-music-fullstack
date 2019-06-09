@@ -279,6 +279,19 @@ iframe {
             opacity: 0.3;
         }
     }
+
+    .position {
+        font-family: $defected-font;
+        font-size: 18px;
+        line-height: 14px;
+        position: absolute;
+        color: #fff;
+        background-color: $black;
+        top: 0;
+        right: 0;
+        padding: 8px;
+        text-align: center;
+    }
 }
 
 .artist-name {

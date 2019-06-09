@@ -13,7 +13,7 @@
 
   <div class="field row">
     <div class="col-3"><%= form.label :position %>*</div>
-    <div class="col-9"><%= form.number_field :position %></div>
+    <div class="col-9"><%= form.number_field :position, value: artist.position || 1 %></div>
   </div>
 
   <div class="field row">
