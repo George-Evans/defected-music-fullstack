@@ -450,6 +450,10 @@ select#event_date_3i {
 
     h1 {
         margin-right: 30%;
+
+        &.artist-h1 {
+            height: 78px;
+        }
     }
 
     nav {
