@@ -30,8 +30,19 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+# Use act_as_list for reordering
+gem 'acts_as_list'
+
+# Use carrierwave image uploader
+gem 'carrierwave', '~> 1.0'
+# Use minimagick for image resizing
+gem 'mini_magick'
+#Use AWS fog for file storage
+gem 'fog-aws'
+#Use Devise for authentication
+gem 'devise'
+# Use CanCanCan for authorisation
+gem 'cancancan', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

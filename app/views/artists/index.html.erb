@@ -12,7 +12,7 @@
     <% @artists.each do |artist| %>
       <div class="col-6 col-lg-4">
         <div class="shim">
-           <%= link_to image_tag(artist.img_url, class: "img-fluid"), artist %>
+           <%= link_to image_tag(artist.img_url.url, class: "img-fluid"), artist %>
            <p class="artist-name"><%= artist.name %></p>
         </div>
       </div>

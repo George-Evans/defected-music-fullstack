@@ -1,4 +1,10 @@
 <div class="container edit-form">
     <h2>Editing About</h2>
     <%= render 'form', about: @about %>
+    <div class='row'>
+        <div class="col-3"></div>
+        <div class="col-9">
+            <%= link_to 'Cancel', '/about' %>
+        </div>
+    </div>
 </div>
