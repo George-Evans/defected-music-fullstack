@@ -332,6 +332,26 @@ select#event_date_3i {
   width: 32.5%;
 }
 
+/*EDITORIALS*/
+
+.editorial {
+    position: relative;
+
+    .delete {
+        font-family: $defected-font;
+        font-size: 12px;
+        line-height: 10px;
+        position: absolute;
+        color: #fff;
+        background-color: $black;
+        top: 0;
+        right: 0;
+        padding: 4px;
+        margin: 1px;
+        text-align: center;
+    }
+}
+
 // Extra Small Phones
 @media (max-width: 420px) {
     .blurb {

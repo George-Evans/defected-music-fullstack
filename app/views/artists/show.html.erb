@@ -3,22 +3,21 @@
  <!-- Artist Profile -->
 <div class="row profile">
     <div class="col-12 col-md-5 breakout">
-        <%= image_tag @artist.img_url.url, class: "img-fluid" %>      
-        <h2 class="d-none d-md-block">Editorial &amp; Sync</h2>
-        <div class="row d-none d-md-flex">
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
+        <%= image_tag @artist.img_url.url, class: "img-fluid" %>
+        <% if @artist.editorial.exists? %>    
+            <h2 class="d-none d-md-block">Editorial &amp; Sync</h2>
+            <div class="row d-none d-md-flex">
+                <%= render 'editorials' %>
             </div>
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
-            </div>
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
-            </div>
+        <% end %>
+        <div class="d-none d-md-block">
+            
         </div>
     </div>
     <div class="col-12 col-md-7 breakout col-left d-block d-md-none">
-        <% if @artist.spotify_playlist != "" %><iframe src="<%= @artist.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe><% end %>
+        <% if @artist.spotify_playlist != "" %>
+            <iframe src="<%= @artist.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe>
+        <% end %>
     </div>
     <div class="col-12 col-md-7 col-left">
         <div class="inner">
@@ -29,14 +28,15 @@
                 <% if @artist.insta != "" %><%= link_to image_tag("socials/ig.svg" , class: "img-fluid"),  @artist.insta %><% end %>
                 <% if @artist.spotify != "" %><%= link_to image_tag("socials/sp.svg" , class: "img-fluid"), @artist.spotify %><% end %>
             </div>
-            <% if @artist.spotify_playlist != "" %><iframe src="<%= @artist.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe><% end %>
+            <% if @artist.spotify_playlist != "" %>
+                <iframe src="<%= @artist.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe>
+            <% end %>
             <h2 class="d-none d-md-block">Biography</h2>
             <p class="d-none d-md-block">
               <%= simple_format(@artist.bio) %>
             </p>
         </div>
     </div>
-    <div class="col-12 col-md-5 d-none d-md-block"></div>
     <div class="col-12 col-md-7 col-left d-block d-md-none">
         <h2>Biography</h2>
         <p>
@@ -44,20 +44,22 @@
         </p>
     </div>
     <div class="col-12 col-md-5 d-block d-md-none">
-        <h2>Editorial &amp; Sync</h2>
-        <div class="row">
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
+        <% if @artist.editorial.exists? %>    
+            <h2>Editorial &amp; Sync</h2>
+            <div class="row">
+                <%= render 'editorials' %>
             </div>
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
-            </div>
-            <div class="col-4 col-sm-2">
-                <%= image_tag "grey_square.svg", class: "img-fluid w-100" %>
-            </div>
-        </div>
+        <% end %>
     </div>
+    <div class="col-12 col-md-5 d-md-block">
+        <%= render 'new_editorial' %>
+    </div>
+    <div class="col-12 col-md-7 d-block col-left">
+        <%= link_to 'Edit Artist', edit_artist_path(@artist) %> |
+        <%= link_to 'Back', artists_path %>
+    </div>
+    
+    
 </div>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+

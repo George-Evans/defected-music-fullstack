@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :editorials
-  resources :artists
+  resources :artists do
+    resources :editorials
+  end
   resources :homes
   resources :abouts
 

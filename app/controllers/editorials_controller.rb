@@ -24,11 +24,12 @@ class EditorialsController < ApplicationController
   # POST /editorials
   # POST /editorials.json
   def create
-    @editorial = Editorial.new(editorial_params)
+    @artist = Artist.find(params[:artist_id])
+    @editorial = @artist.editorial.new(editorial_params)
 
     respond_to do |format|
       if @editorial.save
-        format.html { redirect_to @editorial, notice: 'Editorial was successfully created.' }
+        format.html { redirect_to artist_path(@artist), notice: 'Editorial was successfully created.' }
         format.json { render :show, status: :created, location: @editorial }
       else
         format.html { render :new }
@@ -40,9 +41,12 @@ class EditorialsController < ApplicationController
   # PATCH/PUT /editorials/1
   # PATCH/PUT /editorials/1.json
   def update
+    @artist = Artist.find(params[:artist_id])
+    @editorial = @artist.editorials(editorial_params)
+
     respond_to do |format|
       if @editorial.update(editorial_params)
-        format.html { redirect_to @editorial, notice: 'Editorial was successfully updated.' }
+        format.html { redirect_to artist_path(@artist), notice: 'Editorial was successfully updated.' }
         format.json { render :show, status: :ok, location: @editorial }
       else
         format.html { render :edit }
@@ -54,9 +58,11 @@ class EditorialsController < ApplicationController
   # DELETE /editorials/1
   # DELETE /editorials/1.json
   def destroy
+    @editorial = Editorial.find(params[:id])
+    @artist = @editorial.artist
     @editorial.destroy
     respond_to do |format|
-      format.html { redirect_to editorials_url, notice: 'Editorial was successfully destroyed.' }
+      format.html { redirect_to artist_path(@artist), notice: 'Editorial was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
