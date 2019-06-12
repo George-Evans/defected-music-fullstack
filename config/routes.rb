@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, path: '', path_names: { sign_in: "admin", sign_out: "logout"}
+  resources :users
   resources :artists do
     resources :editorials
   end
