@@ -5,7 +5,9 @@
     <div class="col-6 col-lg-4">
         <div class="blurb">
             <%= simple_format(Home.first.intro) %>
-            <%= link_to "Edit", edit_home_path(Home.first)%>
+            <% if user_signed_in? %>
+              <%= link_to "Edit", edit_home_path(Home.first)%>
+            <% end %>
         </div>
     </div>
 
@@ -15,19 +17,23 @@
           <%= link_to artist do %>
             <%= image_tag artist.img_url.url, class: "img-fluid" %>
             <p class="artist-name"><%= artist.name %></p>
-            <div class="position">
-              <%= artist.position %>
-            </div>
+            <% if user_signed_in? %>
+              <div class="position">
+                <%= artist.position %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
     <% end %>
 
-    <div class="col-6 col-lg-4">
-      <%= link_to new_artist_path do %>
-        <div class="blurb new">
-          Add New Artist
-        </div>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="col-6 col-lg-4">
+        <%= link_to new_artist_path do %>
+          <div class="blurb new">
+            Add New Artist
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 </div>

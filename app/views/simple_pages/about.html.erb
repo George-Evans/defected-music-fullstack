@@ -5,4 +5,6 @@
 <p>
     <%= About.first.body %>
 </p>
-<%= link_to 'Edit', edit_about_path(About.first) %>
+<% if user_signed_in? %>
+    <%= link_to 'Edit', edit_about_path(About.first) %>
+<% end %>

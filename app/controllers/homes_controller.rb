@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /homes
   # GET /homes.json
