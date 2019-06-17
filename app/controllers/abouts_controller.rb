@@ -1,5 +1,6 @@
 class AboutsController < ApplicationController
   before_action :set_about, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /abouts
   # GET /abouts.json

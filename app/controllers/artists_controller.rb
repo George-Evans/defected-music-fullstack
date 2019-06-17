@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /artists
   # GET /artists.json
