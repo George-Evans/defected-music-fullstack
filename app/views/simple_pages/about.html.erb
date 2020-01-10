@@ -3,7 +3,7 @@
 </div>
 <h2><%= About.first.title %></h2>
 <p>
-    <%= About.first.body %>
+    <%= simple_format(About.first.body) %>
 </p>
 <% if user_signed_in? %>
     <%= link_to 'Edit', edit_about_path(About.first) %>

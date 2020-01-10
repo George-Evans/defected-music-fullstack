@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+ <!-- songwriter Profile -->
+<div class="row profile">
+    <div class="col-12 col-md-5 breakout">
+        <%= image_tag @songwriter.img_url.url, class: "img-fluid" %>
+        <% if @songwriter.songwriter_editorial.exists? %>    
+            <h2 class="d-none d-md-block">Editorial &amp; Sync</h2>
+            <div class="row d-none d-md-flex">
+                <%= render 'editorials' %>
+            </div>
+        <% end %>
+        <div class="d-none d-md-block">
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-7 breakout col-left d-block d-md-none">
+        <% if @songwriter.spotify_playlist != "" %>
+            <iframe src="<%= @songwriter.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <% end %>
+    </div>
+    <div class="col-12 col-md-7 col-left">
+        <div class="inner">
+            <h1 class="songwriter-h1"><%= @songwriter.name %></h1>
+            <div class="socials">
+                <% if @songwriter.fb != "" %><%= link_to image_tag("socials/fb.svg", class: "img-fluid"), @songwriter.fb %><% end %>
+                <% if @songwriter.twitter != "" %><%= link_to image_tag("socials/twitter.svg" , class: "img-fluid"), @songwriter.twitter %><% end %>
+                <% if @songwriter.insta != "" %><%= link_to image_tag("socials/ig.svg" , class: "img-fluid"),  @songwriter.insta %><% end %>
+                <% if @songwriter.spotify != "" %><%= link_to image_tag("socials/sp.svg" , class: "img-fluid"), @songwriter.spotify %><% end %>
+            </div>
+            <% if @songwriter.spotify_playlist != "" %>
+                <iframe src="<%= @songwriter.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe>
+            <% end %>
+            <h2 class="d-none d-md-block">Biography</h2>
+            <div class="d-none d-md-block">
+                <%= simple_format(@songwriter.bio) %>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-7 col-left d-block d-md-none">
+        <h2>Biography</h2>
+        <%= simple_format(@songwriter.bio) %>
+    </div>
+    <div class="col-12 col-md-5 d-block d-md-none">
+        <% if @songwriter.songwriter_editorial.exists? %>    
+            <h2>Editorial &amp; Sync</h2>
+            <div class="row">
+                <%= render 'editorials' %>
+            </div>
+        <% end %>
+    </div>
+    <% if user_signed_in? %>
+        <div class="col-12 col-md-5 d-md-block">
+            <%= render 'new_editorial' %>
+        </div>
+        <div class="col-12 col-md-7 d-block col-left">
+            <%= link_to 'Edit songwriter', edit_songwriter_path(@songwriter) %> |
+            <%= link_to 'Back', songwriters_path %> | 
+            <%= link_to 'Delete songwriter', @songwriter, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    <% end %>
+    
+    
+</div>
+
+

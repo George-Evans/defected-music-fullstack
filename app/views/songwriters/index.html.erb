@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<!-- songwriters -->
+<div class="row artists">
+
+    <% @songwriters.each do |songwriter| %>
+      <div class="col-6 col-lg-4">
+        <div class="shim">
+          <%= link_to songwriter do %>
+            <%= image_tag songwriter.img_url.url, class: "img-fluid" %>
+            <p class="artist-name"><%= songwriter.name %></p>
+            <% if user_signed_in? %>
+              <div class="position">
+                <%= songwriter.position %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="col-6 col-lg-4">
+        <%= link_to new_songwriter_path do %>
+          <div class="blurb new">
+            Add New songwriter
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

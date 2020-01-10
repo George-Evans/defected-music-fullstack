@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_200858) do
+ActiveRecord::Schema.define(version: 2020_01_10_205525) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "title"
@@ -45,6 +45,29 @@ ActiveRecord::Schema.define(version: 2019_06_12_200858) do
 
   create_table "homes", force: :cascade do |t|
     t.text "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songwriter_editorials", force: :cascade do |t|
+    t.integer "songwriter_id"
+    t.string "link_url"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["songwriter_id"], name: "index_songwriter_editorials_on_songwriter_id"
+  end
+
+  create_table "songwriters", force: :cascade do |t|
+    t.integer "position"
+    t.string "name"
+    t.text "bio"
+    t.string "img_url"
+    t.string "spotify_playlist"
+    t.string "fb"
+    t.string "insta"
+    t.string "twitter"
+    t.string "spotify"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

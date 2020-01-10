@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Songwriter:</strong>
+  <%= @songwriter_editorial.songwriter_id %>
+</p>
+
+<p>
+  <strong>Link url:</strong>
+  <%= @songwriter_editorial.link_url %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @songwriter_editorial.img_url %>
+</p>
+
+<%= link_to 'Edit', edit_songwriter_editorial_path(@songwriter_editorial) %> |
+<%= link_to 'Back', songwriter_editorials_path %>
