@@ -227,6 +227,10 @@ iframe {
     background: $mid;
     width: 100vw;
     max-width: 100vw;
+
+    &.youtube {
+        min-height: 240px;
+    }
 }
 
 /*/////////////////////////////////////
@@ -316,6 +320,16 @@ iframe {
 
     &.visible {
         opacity: 1;
+    }
+}
+
+.catalogue {
+    .catalogue-artist {
+        margin-bottom: 0;
+    }
+    .catalogue-title {
+        margin-top: 0;
+        color: $mid;
     }
 }
 
@@ -428,8 +442,14 @@ select#event_date_3i {
     }
     
     iframe {
-        height: 315px;
+        height: 178px;
     }
+    .catalogue {
+        iframe {
+            height: 190px;
+        }
+    }
+    
     
 
     h1 {
@@ -465,6 +485,16 @@ select#event_date_3i {
         }
     }
 
+    iframe {
+        height: 239px;
+    }
+
+    .catalogue {
+        iframe {
+            height: 290px;
+        }
+    }
+
     nav {
         margin-bottom: 40px;
     }
@@ -492,6 +522,18 @@ select#event_date_3i {
         font-size: $nav;
         line-height: $nav;
     }
+
+    .catalogue {
+        iframe {
+            height: 365px;
+        }
+    }
+
+    iframe {
+        height: 314px;
+    }
+
+    
 
     /*/////////////////////////////////////
         UI

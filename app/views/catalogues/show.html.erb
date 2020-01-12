@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+ <!-- Catalogue Profile -->
+<div class="row profile">
+    <div class="col-12 col-md-5 breakout">
+        <%= image_tag @catalogue.img_url.url, class: "img-fluid" %>
+        <% if @catalogue.cat_editorial.exists? %>    
+            <h2 class="d-none d-md-block">Editorial &amp; Sync</h2>
+            <div class="row d-none d-md-flex">
+                <%= render 'editorials' %>
+            </div>
+        <% end %>
+        <div class="d-none d-md-block">
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-7 breakout col-left d-block d-md-none">
+        <% if @catalogue.media.include? "spotify" %>
+            <iframe src="<%= @catalogue.media %>" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <% end %>
+    </div>
+    <div class="col-12 col-md-7 col-left">
+        <div class="inner catalogue">
+            <h1 class="catalogue-artist"><%= @catalogue.artist %></h1>
+            <h1 class="catalogue-title"><%= @catalogue.title %></h1>
+            <% if @catalogue.media.include? "spotify" %>
+                <iframe src="<%= @catalogue.media %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe>
+            <% else %>
+                <% if @catalogue.media.include? "youtube" %>
+                    <% @media_id = @catalogue.media.split('=').last %>
+                <% else @catalogue.media.include? "https://youtu.be/98g9NleTgbY" %>
+                    <% @media_id = @catalogue.media.split('/').last %>
+                <% end %>
+                <iframe src="https://www.youtube.com/embed/<%= @media_id %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtube breakout"></iframe>
+            <% end %>
+            <h2 class="d-none d-md-block">Biography</h2>
+            <div class="d-none d-md-block">
+                <%= simple_format(@catalogue.bio) %>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-7 col-left d-block d-md-none">
+        <h2>Biography</h2>
+        <%= simple_format(@catalogue.bio) %>
+    </div>
+    <div class="col-12 col-md-5 d-block d-md-none">
+        <% if @catalogue.cat_editorial.exists? %>    
+            <h2>Editorial &amp; Sync</h2>
+            <div class="row">
+                <%= render 'editorials' %>
+            </div>
+        <% end %>
+    </div>
+    <% if user_signed_in? %>
+        <div class="col-12 col-md-5 d-md-block">
+            <%= render 'new_editorial' %>
+        </div>
+        <div class="col-12 col-md-7 d-block col-left">
+            <%= link_to 'Edit Catalogue', edit_catalogue_path(@catalogue) %> |
+            <%= link_to 'Back', catalogues_path %> | 
+            <%= link_to 'Delete Catalogue', @catalogue, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    <% end %>
+    
+    
+</div>
+
+

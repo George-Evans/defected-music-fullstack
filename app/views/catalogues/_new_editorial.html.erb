@@ -1,0 +1,15 @@
+<h2>New Editorial</h2>
+<%= form_for([@catalogue, @catalogue.cat_editorial.build], remote: true) do |form| %>
+    <div class="field row">
+        <div class="col-3"><%= form.label "Image" %>*</div>
+        <div class="col-9"><%= form.file_field :img_url %></div>
+    </div>
+    <div class="field row">
+        <div class="col-3"><%= form.label "Link" %>*</div>
+        <div class="col-9"><%= form.text_field :link_url %></div>
+    </div>
+    <div class="actions row">
+        <div class="col-3"></div>
+        <div class="col-9"><%= form.submit %></div>
+    </div>
+<% end %>

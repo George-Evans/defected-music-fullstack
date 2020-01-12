@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_205525) do
+ActiveRecord::Schema.define(version: 2020_01_12_191531) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "title"
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 2020_01_10_205525) do
     t.string "insta"
     t.string "twitter"
     t.string "spotify"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cat_editorials", force: :cascade do |t|
+    t.integer "catalogue_id"
+    t.string "link_url"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["catalogue_id"], name: "index_cat_editorials_on_catalogue_id"
+  end
+
+  create_table "catalogues", force: :cascade do |t|
+    t.string "artist"
+    t.string "title"
+    t.string "img_url"
+    t.text "bio"
+    t.integer "position"
+    t.string "media"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

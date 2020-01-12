@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Catalogue:</strong>
+  <%= @cat_editorial.catalogue_id %>
+</p>
+
+<p>
+  <strong>Link url:</strong>
+  <%= @cat_editorial.link_url %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @cat_editorial.img_url %>
+</p>
+
+<%= link_to 'Edit', edit_cat_editorial_path(@cat_editorial) %> |
+<%= link_to 'Back', cat_editorials_path %>

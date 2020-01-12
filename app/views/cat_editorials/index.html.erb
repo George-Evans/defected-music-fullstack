@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cat Editorials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Catalogue</th>
+      <th>Link url</th>
+      <th>Img url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cat_editorials.each do |cat_editorial| %>
+      <tr>
+        <td><%= cat_editorial.catalogue_id %></td>
+        <td><%= cat_editorial.link_url %></td>
+        <td><%= cat_editorial.img_url %></td>
+        <td><%= link_to 'Show', cat_editorial %></td>
+        <td><%= link_to 'Edit', edit_cat_editorial_path(cat_editorial) %></td>
+        <td><%= link_to 'Destroy', cat_editorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cat Editorial', new_cat_editorial_path %>

@@ -70,6 +70,6 @@ class SongwritersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def songwriter_params
-      params.require(:songwriter).permit(:position, :name, :bio, :img_url, :spotify_playlist, :fb, :insta, :twitter, :spotify, :editorial)
+      params.require(:songwriter).permit(:position, :name, :bio, :img_url, :spotify_playlist, :fb, :insta, :twitter, :spotify, :songwriter_editorial)
     end
 end

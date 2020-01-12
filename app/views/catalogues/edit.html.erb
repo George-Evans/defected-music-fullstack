@@ -1,0 +1,13 @@
+<div class="container edit-form">
+    <h2>Editing <%= @catalogue.artist %> - <%=@catalogue.title %></h2>
+    <%= render 'form', catalogue: @catalogue %>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <%= link_to 'View', @catalogue %> |
+            <%= link_to 'Delete', @catalogue, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <%= link_to 'Cancel', catalogues_path %>
+        </div>
+    </div>
+</div>
+
