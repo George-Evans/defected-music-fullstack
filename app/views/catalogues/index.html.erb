@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<!-- Catalogues -->
+<div class="row artists">
+
+    <% @catalogues.each do |catalogue| %>
+      <div class="col-6 col-lg-4">
+        <div class="shim">
+          <%= link_to catalogue do %>
+            <%= image_tag catalogue.img_url.url, class: "img-fluid" %>
+            <div class="artist-name">
+              <p><%= catalogue.artist %></p>
+              <p><%= catalogue.title %></p>
+            </div>
+            <% if user_signed_in? %>
+              <div class="position">
+                <%= catalogue.position %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="col-6 col-lg-4">
+        <%= link_to new_catalogue_path do %>
+          <div class="blurb new">
+            Add New Catalogue
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

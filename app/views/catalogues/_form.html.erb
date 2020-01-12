@@ -1,0 +1,48 @@
+<%= form_with(model: catalogue, local: true) do |form| %>
+  <% if catalogue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+
+      <ul>
+      <% catalogue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label :position %>*</div>
+    <div class="col-9"><%= form.number_field :position, value: catalogue.position || 1 %></div>
+  </div>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label :artist %>*</div>
+    <div class="col-9"><%= form.text_field :artist %></div>
+  </div>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label :title %>*</div>
+    <div class="col-9"><%= form.text_field :title %></div>
+  </div>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label :bio %>*</div>
+    <div class="col-9"><%= form.text_area :bio %></div>
+  </div>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label 'Image' %>*</div>
+    <div class="col-9"><%= form.file_field :img_url %></div>
+  </div>
+
+  <div class="field row">
+    <div class="col-3"><%= form.label :media %></div>
+    <div class="col-9"><%= form.text_field :media %></div>
+  </div>
+
+  <div class="actions row">
+    <div class="col-3"></div>
+    <div class="col-9"><%= form.submit %></div>
+  </div>
+<% end %>

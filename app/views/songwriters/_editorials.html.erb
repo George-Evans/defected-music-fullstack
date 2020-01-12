@@ -1,0 +1,8 @@
+<% @songwriter.songwriter_editorial.each do |editorial| %>
+    <div class="col-4 col-sm-2 editorial">
+        <%= link_to image_tag((editorial.img_url.url || 'grey_square.svg'), class: "img-fluid w-100"), editorial.link_url %>
+        <% if user_signed_in? %>
+            <%= link_to "X", songwriter_songwriter_editorial_path(editorial.songwriter, editorial), method: :delete, data: { confirm: 'Are you sure?'}, class: 'delete' %>
+        <% end %>    
+    </div>
+<% end %>

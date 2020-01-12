@@ -1,0 +1,2 @@
+module SongwriterEditorialsHelper
+end

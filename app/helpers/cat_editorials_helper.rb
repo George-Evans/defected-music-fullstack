@@ -1,0 +1,2 @@
+module CatEditorialsHelper
+end

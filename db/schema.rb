@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_200858) do
+ActiveRecord::Schema.define(version: 2020_01_12_191531) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 2019_06_12_200858) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cat_editorials", force: :cascade do |t|
+    t.integer "catalogue_id"
+    t.string "link_url"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["catalogue_id"], name: "index_cat_editorials_on_catalogue_id"
+  end
+
+  create_table "catalogues", force: :cascade do |t|
+    t.string "artist"
+    t.string "title"
+    t.string "img_url"
+    t.text "bio"
+    t.integer "position"
+    t.string "media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "editorials", force: :cascade do |t|
     t.integer "artist_id"
     t.string "link_url"
@@ -45,6 +65,29 @@ ActiveRecord::Schema.define(version: 2019_06_12_200858) do
 
   create_table "homes", force: :cascade do |t|
     t.text "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songwriter_editorials", force: :cascade do |t|
+    t.integer "songwriter_id"
+    t.string "link_url"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["songwriter_id"], name: "index_songwriter_editorials_on_songwriter_id"
+  end
+
+  create_table "songwriters", force: :cascade do |t|
+    t.integer "position"
+    t.string "name"
+    t.text "bio"
+    t.string "img_url"
+    t.string "spotify_playlist"
+    t.string "fb"
+    t.string "insta"
+    t.string "twitter"
+    t.string "spotify"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

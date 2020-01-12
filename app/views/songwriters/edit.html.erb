@@ -1,0 +1,13 @@
+<div class="container edit-form">
+    <h2>Editing <%= @songwriter.name %></h2>
+    <%= render 'form', songwriter: @songwriter %>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <%= link_to 'View', @songwriter %> |
+            <%= link_to 'Delete', @songwriter, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <%= link_to 'Cancel', songwriters_path %>
+        </div>
+    </div>
+</div>
+

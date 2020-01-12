@@ -1,0 +1,32 @@
+<%= form_with(model: songwriter_editorial, local: true) do |form| %>
+  <% if songwriter_editorial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(songwriter_editorial.errors.count, "error") %> prohibited this songwriter_editorial from being saved:</h2>
+
+      <ul>
+      <% songwriter_editorial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :songwriter_id %>
+    <%= form.number_field :songwriter_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_url %>
+    <%= form.text_field :link_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :img_url %>
+    <%= form.text_field :img_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
