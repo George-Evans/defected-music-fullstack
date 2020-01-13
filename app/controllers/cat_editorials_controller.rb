@@ -58,7 +58,7 @@ class CatEditorialsController < ApplicationController
   # DELETE /cat_editorials/1
   # DELETE /cat_editorials/1.json
   def destroy
-    @cat_editorial = CatalogueEditorial.find(params[:id])
+    @cat_editorial = CatEditorial.find(params[:id])
     @catalogue = @cat_editorial.catalogue
     @cat_editorial.destroy
     respond_to do |format|
