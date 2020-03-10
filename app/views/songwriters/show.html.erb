@@ -23,10 +23,10 @@
         <div class="inner">
             <h1 class="songwriter-h1"><%= @songwriter.name %></h1>
             <div class="socials">
-                <% if @songwriter.fb != "" %><%= link_to image_tag("socials/fb.svg", class: "img-fluid"), @songwriter.fb %><% end %>
-                <% if @songwriter.twitter != "" %><%= link_to image_tag("socials/twitter.svg" , class: "img-fluid"), @songwriter.twitter %><% end %>
-                <% if @songwriter.insta != "" %><%= link_to image_tag("socials/ig.svg" , class: "img-fluid"),  @songwriter.insta %><% end %>
-                <% if @songwriter.spotify != "" %><%= link_to image_tag("socials/sp.svg" , class: "img-fluid"), @songwriter.spotify %><% end %>
+                <% if @songwriter.fb != "" %><%= link_to image_tag("socials/fb.svg", class: "img-fluid"), @songwriter.fb, target: "_blank" %><% end %>
+                <% if @songwriter.twitter != "" %><%= link_to image_tag("socials/twitter.svg" , class: "img-fluid"), @songwriter.twitter, target: "_blank" %><% end %>
+                <% if @songwriter.insta != "" %><%= link_to image_tag("socials/ig.svg" , class: "img-fluid"),  @songwriter.insta, target: "_blank" %><% end %>
+                <% if @songwriter.spotify != "" %><%= link_to image_tag("socials/sp.svg" , class: "img-fluid"), @songwriter.spotify, target: "_blank" %><% end %>
             </div>
             <% if @songwriter.spotify_playlist != "" %>
                 <iframe src="<%= @songwriter.spotify_playlist %>" frameborder="0" allowtransparency="true" allow="encrypted-media" class="d-none d-md-block"></iframe>
