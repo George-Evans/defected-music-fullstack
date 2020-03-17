@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
  <!-- Artist Profile -->
+<div class="nav-arrows">
+    <% if @artist.previous_artist %><%= link_to render(:partial => 'shared/previous_arrow'), @artist.previous_artist %><% end %>
+    <% if @artist.next_artist %><%= link_to render(:partial => 'shared/next_arrow'), @artist.next_artist %><% end %>
+</div>
 <div class="row profile">
     <div class="col-12 col-md-5 breakout">
         <%= image_tag @artist.img_url.url, class: "img-fluid" %>
@@ -22,6 +26,7 @@
     <div class="col-12 col-md-7 col-left">
         <div class="inner">
             <h1 class="artist-h1"><%= @artist.name %></h1>
+            
             <div class="socials">
                 <% if @artist.fb != "" %><%= link_to image_tag("socials/fb.svg", class: "img-fluid"), @artist.fb, target: "_blank" %><% end %>
                 <% if @artist.twitter != "" %><%= link_to image_tag("socials/twitter.svg" , class: "img-fluid"), @artist.twitter, target: "_blank" %><% end %>

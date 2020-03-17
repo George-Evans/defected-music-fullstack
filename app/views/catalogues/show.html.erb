@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
  <!-- Catalogue Profile -->
+ <div class="nav-arrows">
+    <% if @catalogue.previous_catalogue %><%= link_to render(:partial => 'shared/previous_arrow'), @catalogue.previous_catalogue %><% end %>
+    <% if @catalogue.next_catalogue %><%= link_to render(:partial => 'shared/next_arrow'), @catalogue.next_catalogue %><% end %>
+</div>
 <div class="row profile">
     <div class="col-12 col-md-5 breakout">
         <%= image_tag @catalogue.img_url.url, class: "img-fluid" %>

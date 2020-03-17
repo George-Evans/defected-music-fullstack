@@ -254,6 +254,31 @@ iframe {
     margin-bottom: -2px;
 }
 
+.nav-arrows {
+    position: absolute;
+    z-index: 2;
+    width: 98vw;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, 0);
+    max-width: 1280px;
+    
+    .previous {
+        position: absolute;
+        left: 0;
+    }
+
+    .next {
+        position: absolute;
+        right: 0;
+    }
+
+    svg {
+        height: 24px;
+        margin-top: calc(50vw - 12px);
+    }
+}
+
 .socials {
     height: 35px;
     margin-bottom: 16px;
@@ -421,6 +446,14 @@ select#event_date_3i {
         }
     }
 
+    .nav-arrows {
+        svg {
+            polygon {
+                fill: #000;
+            }
+        }
+    }
+
     iframe {
         width: 100%;
         max-width: 100%;
@@ -447,6 +480,18 @@ select#event_date_3i {
     .catalogue {
         iframe {
             height: 190px;
+        }
+    }
+
+    .nav-arrows {
+    
+        svg {
+            height: 36px;
+            margin-top: 214px;
+
+            polygon {
+                fill: #000;
+            }
         }
     }
     
@@ -521,6 +566,18 @@ select#event_date_3i {
     nav {
         font-size: $nav;
         line-height: $nav;
+    }
+
+    .nav-arrows {
+    
+        svg {
+            height: 36px;
+            margin-top: 214px;
+
+            polygon {
+                fill: #000;
+            }
+        }
     }
 
     .catalogue {

@@ -9,4 +9,12 @@ class Artist < ApplicationRecord
     validates :img_url, presence: true
 
     mount_uploader :img_url, ArtistUploader
+
+    def previous_artist
+        Artist.where("position < ?", position).order(position: :desc).limit(1).first
+    end
+
+    def next_artist
+        Artist.where("position > ?", position).order(position: :asc).limit(1).first
+    end
 end

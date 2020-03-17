@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
  <!-- songwriter Profile -->
+ <div class="nav-arrows">
+    <% if @songwriter.previous_songwriter %><%= link_to render(:partial => 'shared/previous_arrow'), @songwriter.previous_songwriter %><% end %>
+    <% if @songwriter.next_songwriter %><%= link_to render(:partial => 'shared/next_arrow'), @songwriter.next_songwriter %><% end %>
+</div>
 <div class="row profile">
     <div class="col-12 col-md-5 breakout">
         <%= image_tag @songwriter.img_url.url, class: "img-fluid" %>
