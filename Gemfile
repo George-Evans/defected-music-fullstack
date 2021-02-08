@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'acts_as_list'
 
 # Use carrierwave image uploader
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 # Use minimagick for image resizing
 gem 'mini_magick'
 #Use AWS fog for file storage
